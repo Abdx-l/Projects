@@ -1,0 +1,63 @@
+#include <stdio.h> 
+#include <math.h>
+
+#define e 2.718281828459045
+ 
+int
+main ()
+{
+	int age;
+	char gender, FNL;
+	double RHR, MHR,INTEN, THR;
+	
+	printf ("Enter Gender (M or F): ");
+	scanf ("%c", &gender);
+	printf ("Enter Age: ");
+	scanf ("%d", &age);
+	printf ("Enter Resting Heart Rate: ");
+	scanf ("%lf", &RHR);
+	printf ("Enter Fitness Level (low 'L' , medium 'M', or high 'H'): ");
+	scanf (" %c", &FNL);
+	{
+		switch (FNL) { //To give the fitness level a value 
+    case 'L': 
+        INTEN = 0.55;
+        break;
+    case 'M':
+        INTEN = 0.65;
+        break;
+    case 'H':
+        INTEN= 0.80;
+        break;
+    default:
+        printf("Fitness Level is not valid, make sure it is capitalized\n");
+}
+		switch (gender) /*Applies the formula of max heart rate for male or female depending on user input*/
+		{
+		case 'M':
+			MHR = 203.7/(1+ (pow(e,(0.033 * (age-104.3)))));
+			break;
+		case 'F':
+			MHR = 190.2/(1+ (pow(e,(0.0453 * (age-107.5)))));
+			break;
+		default:
+			printf ("Age or gender is invalid");
+		}
+	}
+	
+	THR = (MHR - RHR) * INTEN + RHR; //Formula for training heart rate 
+	
+	
+	printf ("Your training heart rate is %.0lf\n", THR);
+	
+	return (0);
+}
+	
+		 
+			
+
+	
+	
+	
+
+	
