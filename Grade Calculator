@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <math.h>
+
+int
+main ()
+{
+	double q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,m,e,qa,ma,ea,fm;
+	printf("Enter Quiz Marks (separate each quiz with ','): ");
+	scanf ("%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf,%lf", &q1,&q2,&q3,&q4,&q5,&q6,&q7,&q8,&q9,&q10);
+	printf ("Enter Midterm Mark: ");
+	scanf ("%lf", &m);
+	printf ("Enter Exam Mark: ");
+	scanf ("%lf", &e);
+
+	if (q1 > q10) //To determine which quiz to drop
+		qa = (((q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 +q9)/9) * 10) * 0.25 ; //Each equation is multiplied by 10 then 0.25 because of the quiz factor and course grade factor 
+		else if (q10 > q1) 
+			qa = (((q10 + q2 + q3 + q4 + q5 + q6 + q7 + q8 +q9)/9)* 10) * 0.25;
+		else if (q10 == q1)
+			qa = (((q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 +q9)/9)* 10) * 0.25;
+		else 
+			printf ("Error");
+	
+	
+	if (m >= e) { //To determine which course grade factor to use for midterm and exam
+		ma = 0.35 * m; //Multiplied by the course grade factor 
+		ea = 0.40 * e;}
+		else if (e > m){
+			ma = 0.25 * m;
+			ea = 0.50 * e;}
+		else 
+			printf ("Error");
+	
+	fm = ea + ma +qa; //adding up all the marks 
+	
+	printf ("Your Final Mark is: %.2lf%%", fm);
+	
+	return (0);
+}
+		 
+	
+
