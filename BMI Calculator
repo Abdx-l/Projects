@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <math.h>
+#include <string.h>//New library for strings 
+
+int 
+main ()
+{
+	double w,h,BMI;
+	char class[15];//15 character max
+
+	printf ("Enter weight in kg: ");
+	scanf ("%lf", &w);
+	printf ("Enter height in m: ");
+	scanf ("%lf", &h);
+	
+	BMI = w / (pow(h, 2));//BMI formula
+	
+	if (18.5 > BMI)//The condition to match bmi with class
+		strcpy(class, "Underweight");//Classifies "class" as a string
+	else if (BMI >= 18.5 && BMI <= 24.9)
+		strcpy(class, "Normal");
+	 else if (BMI >= 25 && BMI <= 29.9)
+		strcpy(class, "Overweight");
+	else if (BMI >= 30)
+		strcpy(class, "Obese");
+		
+	printf ("Your BMI value is %.1lf, which classifies you as %s", BMI, class);
+	
+	return (0);
+}
+			
+	
+	
