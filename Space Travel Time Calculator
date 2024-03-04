@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+double 
+moon_travel_equation (double *velocity)/*function to calculate min and max time to the moon*/
+{
+	double time_max, time_min;
+	time_max = 405696.0 / *velocity;
+	time_min = 363104.0 / *velocity;
+	printf("Minimum Travel time is %.0lf hours\nMaximum Travel time is %.0lf hours", time_min, time_max);
+	return (0);
+}
+
+double 
+mars_travel_equation (double *velocity)/*function to calculate min and max time to mars*/
+{
+	double time_max, time_min;
+	time_max = 401000000.0 / *velocity;
+	time_min = 54600000.0 / *velocity;
+	printf("Minimum Travel time is %.0lf hours\nMaximum Travel time is %.0lf hours", time_min, time_max);
+	return (0);
+}
+
+double 
+venus_travel_equation (double *velocity)/*function to calculate min and max time to venus*/
+{
+	double time_max, time_min;
+	time_max = 261000000.0 / *velocity;
+	time_min = 38000000.0 / *velocity;
+	printf("Minimum Travel time is %.0lf hours\nMaximum Travel time is %.0lf hours", time_min, time_max);
+	return (0);
+}
+int
+main ()
+{
+	int option;
+	double velocity;
+	
+	printf ("Chose from the following options\n1.Traveling to The Moon\n2.Traveling To Mars\n3.Traveling To Venus\n4.Exit Program\n");
+	scanf ("%d", &option);
+	
+	while (option < 4)
+	{
+		if (option == 1)//If user chooses moon
+		{
+			printf ("Enter Traveling Speed: ");
+			scanf ("%lf", &velocity);
+			moon_travel_equation(&velocity);
+		}
+		else if (option == 2)//If user chooses mars
+		{
+			printf ("Enter Traveling Speed: ");
+			scanf ("%lf", &velocity);
+			mars_travel_equation(&velocity);
+		}
+		else if (option == 3)//If user chooses venus
+		{
+			printf ("Enter Traveling Speed: ");
+			scanf ("%lf", &velocity);
+			venus_travel_equation(&velocity);
+		}
+		printf("\nChoose from the following options:\n1. Traveling to The Moon\n2. Traveling To Mars\n3. Traveling To Venus\n4. Exit Program\n");/*To repeat the options*/
+        scanf("%d", &option);
+	}
+	
+	return (0);
+}
+	
