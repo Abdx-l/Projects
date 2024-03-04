@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int rows, coef, i, j;
+
+    while (1) {
+        printf("Enter the number of rows (or enter 0 to exit): ");
+        scanf("%d", &rows);
+
+        if (rows == 0)
+            break;
+
+        for (i = 0; i < rows; i++) {
+            coef = 1;
+            
+            for (j = 0; j <= i; j++) {
+                if (j > 0 && i > 0)
+                    coef = coef * (i - j + 1) / j; //formula for factorial per row
+
+                printf("%3d", coef);//spacing
+            }
+            printf("\n");
+        }
+    }
+
+    return 0;
+}
